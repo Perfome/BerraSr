@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    color: #fff;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    25% { transform: translateY(-100px) translateX(50px); }
+    50% { transform: translateY(-200px) translateX(-30px); }
+    75% { transform: translateY(-100px) translateX(-50px); }
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.intro-section {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.main-title {
+    font-size: 5em;
+    font-weight: 300;
+    letter-spacing: 8px;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    animation: glow 3s ease-in-out infinite;
+    margin-bottom: 30px;
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+    50% { text-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.4); }
+}
+
+.divider {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    margin: 0 auto;
+    animation: expand 2s ease-in-out infinite;
+}
+
+@keyframes expand {
+    0%, 100% { width: 100px; opacity: 0.5; }
+    50% { width: 200px; opacity: 1; }
+}
+
+.content-section {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 60px 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-block {
+    font-size: 1.4em;
+    line-height: 2;
+    margin-bottom: 35px;
+    color: rgba(255, 255, 255, 0.95);
+    opacity: 0;
+    transform: translateY(30px);
+    letter-spacing: 0.5px;
+}
+
+.quote-section {
+    margin: 60px 0;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.quote {
+    font-size: 1.5em;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+}
+
+.heart-beat {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 107, 107, 0.8);
+    margin: 60px auto;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: heartbeat 1.5s infinite;
+    opacity: 0;
+}
+
+.heart-beat:before,
+.heart-beat:after {
+    content: "";
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 107, 107, 0.8);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart-beat:before {
+    top: -40px;
+    left: 0;
+}
+
+.heart-beat:after {
+    left: 40px;
+    top: 0;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: rotate(-45deg) scale(1); }
+    10% { transform: rotate(-45deg) scale(1.15); }
+    20% { transform: rotate(-45deg) scale(1); }
+    30% { transform: rotate(-45deg) scale(1.15); }
+    40% { transform: rotate(-45deg) scale(1); }
+}
+
+.signature {
+    font-size: 1.3em;
+    text-align: right;
+    font-style: italic;
+    margin-top: 50px;
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-up {
+    animation: fadeUp 1s forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 60px 20px;
+    }
+    
+    .main-title {
+        font-size: 3em;
+        letter-spacing: 4px;
+    }
+    
+    .content-section {
+        padding: 40px 30px;
+    }
+    
+    .text-block {
+        font-size: 1.2em;
+    }
+    
+    .quote {
+        font-size: 1.3em;
+    }
+}
